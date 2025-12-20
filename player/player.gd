@@ -47,13 +47,11 @@ func change_state(new_state):
 			velocity.x = -300 * sign(velocity.x)
 			life -= 1
 			if life <= 0:
-				#get_tree().change_scene_to_file("res://ui/menu.tscn")
-				#GameState.current_level = 0
+				get_tree().quit()
 				return;
 			await get_tree().create_timer(0.75).timeout
 			change_state(IDLE)
 		JUMP:
-			$AnimationPlayer.play("jump_up")
 			run_speed = 150
 		DASH:
 			is_dashing = true
@@ -82,6 +80,7 @@ func get_input(delta: float):
 		velocity.y = jump_speed
 	if dash and $dashCd.is_stopped():
 		change_state(DASH)
+		$DashSound.play()
 	if state == IDLE and velocity.x != 0:
 		change_state(RUN)
 	if state == RUN and velocity.x == 0:
@@ -100,11 +99,10 @@ func _physics_process(delta: float) -> void:
 		return
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		if collision.get_collider().is_in_group("danger"):
-			hurt()
 		if collision.get_collider().is_in_group("enemies"):
 			if is_dashing:
 				collision.get_collider().take_damage()
+				$enemyDeathSound.play()
 			else:
 				hurt()
 	if state == JUMP and is_on_floor():
@@ -116,8 +114,6 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	if state != CLIMB:
 		velocity.y += gravity * delta
-	if state == JUMP and velocity.y > 0:
-		$AnimationPlayer.play("jump_down")
 
 func reset(_position):
 	position = _position

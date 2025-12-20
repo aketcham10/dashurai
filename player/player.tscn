@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://chms70770ee4w"]
+[gd_scene load_steps=8 format=3 uid="uid://chms70770ee4w"]
 
 [ext_resource type="Script" uid="uid://lr82a42m5fmu" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://ckuxxnwrbgven" path="res://assets/little guy.png" id="2_rkbax"]
+[ext_resource type="AudioStream" uid="uid://bfwxp2rtkr0ib" path="res://assets/dash_sound.wav" id="3_g1dw6"]
+[ext_resource type="AudioStream" uid="uid://cd8jvduxa7ani" path="res://assets/enemy_hit.ogg" id="4_yw30f"]
 
 [sub_resource type="Animation" id="Animation_yw30f"]
 resource_name = "run"
@@ -56,3 +58,11 @@ limit_top = -234
 
 [node name="dashCd" type="Timer" parent="."]
 one_shot = true
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_g1dw6")
+volume_db = -18.258
+
+[node name="enemyDeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_yw30f")
+volume_db = -13.383

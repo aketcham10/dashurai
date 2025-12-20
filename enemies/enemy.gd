@@ -5,7 +5,7 @@ var facing = 1
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
 	velocity.x = facing * speed
-	$Sprite2D.flip_h = velocity.x > 0
+	$Sprite2D.flip_h = velocity.x < 0
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
@@ -17,10 +17,9 @@ func _physics_process(delta: float) -> void:
 		if position.y > 10000:
 			queue_free()
 func take_damage():
-	#$AnimationPlayer.play("death")
-	#$diedSound.play()
 	$CollisionShape2D.set_deferred("disabled", true)
 	set_physics_process(false)
+	queue_free()
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

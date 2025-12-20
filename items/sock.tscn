@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddm8kdulf680b"]
+
+[ext_resource type="Script" uid="uid://cj0h8l341aksu" path="res://items/sock.gd" id="1_fe40u"]
+[ext_resource type="Texture2D" uid="uid://bs6fex3x8y3tp" path="res://assets/sock.png" id="1_gku44"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fe40u"]
+size = Vector2(27, 32)
+
+[node name="Sock" type="Area2D" groups=["items"]]
+collision_mask = 2
+script = ExtResource("1_fe40u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gku44")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_fe40u")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

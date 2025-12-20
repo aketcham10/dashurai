@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://7oinuh72ejw4"]
+
+[ext_resource type="Texture2D" uid="uid://d4il6figru26i" path="res://assets/landscape.png" id="1_fwsgo"]
+[ext_resource type="Script" uid="uid://xnoqkvrtn7rb" path="res://cutscenes/intro.gd" id="1_mbx7u"]
+[ext_resource type="AudioStream" uid="uid://ckqgwaasdmfpp" path="res://assets/One Man Symphony - Remnants of a Distant World (Free) - 01 Main Menu Theme.mp3" id="3_fynay"]
+
+[node name="Intro" type="Node2D"]
+position = Vector2(-2, 84)
+script = ExtResource("1_mbx7u")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -366.0
+offset_top = -321.0
+offset_right = 1768.8022
+offset_bottom = 852.11816
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = 372.0
+offset_right = 1092.0
+offset_bottom = 609.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "You are villager living in a remote land. You lived there peacefully until some hooligans came to your village and 
+started stealing people's socks! Get out there and take them back, and maybe take a few of those hooligans with you...
+
+Press Space to Continue"
+horizontal_alignment = 1
+
+[node name="Landscape" type="Sprite2D" parent="."]
+position = Vector2(570, 177)
+texture = ExtResource("1_fwsgo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fynay")
+volume_db = -17.174
+autoplay = true

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Dashurai v2"
 config/version="2"
-run/main_scene="uid://ctrwhm5g7oyti"
+run/main_scene="uid://7oinuh72ejw4"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(1.540184e-06, 0.65346974, 0.8851271, 1)
 config/icon="res://icon.svg"
@@ -39,3 +39,7 @@ dash={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(103, 9),"global_position":Vector2(112, 57),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.1607219, 0.5107132, 0.6837295, 1)

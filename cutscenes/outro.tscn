@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c513hkwcgih70"]
+
+[ext_resource type="Texture2D" uid="uid://ma8qapi75ygh" path="res://assets/happy_cat.png" id="1_mc1b7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kdy0w"]
+font_size = 48
+
+[node name="outro" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -225.0
+offset_top = -580.0
+offset_right = 1564.0
+offset_bottom = 1209.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 132.0
+offset_top = 296.0
+offset_right = 988.0
+offset_bottom = 642.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Good job! You retrieved all the socks!"
+label_settings = SubResource("LabelSettings_kdy0w")
+horizontal_alignment = 1
+
+[node name="HappyCat" type="Sprite2D" parent="."]
+position = Vector2(561, 148)
+texture = ExtResource("1_mc1b7")

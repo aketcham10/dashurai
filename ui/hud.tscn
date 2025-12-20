@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://kdbyhc1ic32a"]
+
+[ext_resource type="Texture2D" uid="uid://bs6fex3x8y3tp" path="res://assets/sock.png" id="1_276te"]
+[ext_resource type="Script" uid="uid://pg1qe7mglpgg" path="res://ui/hud.gd" id="1_546lt"]
+[ext_resource type="Texture2D" uid="uid://blk4j0pnqmph4" path="res://assets/heart.png" id="1_rbyyf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rbyyf"]
+font_size = 32
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_546lt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Socks" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_rbyyf")
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_276te")
+
+[node name="LifeCounter" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="L1" type="TextureRect" parent="HBoxContainer/LifeCounter"]
+layout_mode = 2
+texture = ExtResource("1_rbyyf")
+
+[node name="L2" type="TextureRect" parent="HBoxContainer/LifeCounter"]
+layout_mode = 2
+texture = ExtResource("1_rbyyf")
+
+[node name="L3" type="TextureRect" parent="HBoxContainer/LifeCounter"]
+layout_mode = 2
+texture = ExtResource("1_rbyyf")
